@@ -1,0 +1,9 @@
+123.0012584 noa 
+/** Todo esto deberia ignorarlo */
+/* Esto tambien */
+/* Esto tambien **/
+
+2/5
+a16854
+84asd6f
+2*3 a23+96

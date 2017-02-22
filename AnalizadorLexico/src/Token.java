@@ -40,7 +40,9 @@ public class Token {
     /**
      * Default Constructor
      */
-    public Token(){}
+    public Token(){
+    this.lexema="";
+    this.tipo=1;}
     
     /**
      * Constructor with parameters
@@ -61,42 +63,61 @@ public class Token {
         switch(this.tipo){
             case 1:
                 res= "(";
+                break;
             case 2:
                 res= ")";
+                break;
             case 3:
                 res= "*/";
+                break;
             case 4:
                 res= "+-";
+                break;
             case 5:
                 res= ";";
+                break;
             case 6:
                 res= ":";
+                break;
             case 7:
                 res= ",";
+                break;
             case 8:
                 res= "=";
+                break;
             case 9:
                 res= "{";
+                break;
             case 10:
                 res= "}";
+                break;
             case 11:
                 res= "'class'";
+                break;
             case 12:
                 res= "'public'";
+                break;
             case 13:
                 res= "'private'";
+                break;
             case 14:
                 res= "'float'";
+                break;
             case 15:
                 res= "'int'";
+                break;
             case 16:
-                res= "'res='";
+                res= "'resturn'";
+                break;
             case 17:
                 res= "numero entero";
+                break;
             case 18:
                 res= "identificador";
+                break;
             case 19:
                 res= "numero real";
+                break;
         }
         return res;
     }

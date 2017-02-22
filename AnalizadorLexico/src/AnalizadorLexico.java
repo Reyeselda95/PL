@@ -2,6 +2,8 @@
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +19,7 @@ public class AnalizadorLexico {
 
     private RandomAccessFile fichero;
     private static char EOF=(char)-1;
+    private int fila=1, columna=1,pos=0;
     
     public AnalizadorLexico(RandomAccessFile a) {
         fichero=a;
@@ -41,72 +44,126 @@ public class AnalizadorLexico {
         }
     }
 
+    public void rollBack(){
+        try {
+            --pos;
+            fichero.seek(pos);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(AnalizadorLexico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Token siguienteToken(){
         Token t= new Token();
         boolean finish=false;
         int estado=1;
         int nuevo;
         char read=leerCaracter();
+        ++pos;
         do{
             nuevo=delta(estado,read);
-            if(nuevo==-1)
+            if(nuevo==-1)//Si el estado es error
             {
-                System.err.println("Error lexico ("+t.fila+","+t.columna+"): caracter ’"+read+"’ incorrecto");
-                System.exit(-1);
-            }
-            if(esFinal(nuevo)){
-                
-                
-                
-                if(read=='\n'){
-                    ++t.columna;
-                    t.fila=0;
-                }else{
-                    ++t.fila;
+               // System.out.println("He entrado aqui por el caracter: "+read+" con el estado:"+nuevo);
+                switch(read){
+                    case ' ':
+                        ++columna;
+                        read=leerCaracter();
+                        ++pos;
+                        estado=1;
+                        nuevo=delta(estado,read);
+                        ++columna;
+                        break;
+                    case '\n':
+                        read=leerCaracter();
+                        ++pos;
+                        estado=1;
+                        nuevo=delta(estado,read);
+                        columna=1;
+                        ++fila;
+                        break;
+                    case '\t':
+                        ++columna;
+                        read=leerCaracter();
+                        ++pos;
+                        estado=1;
+                        nuevo=delta(estado,read);
+                        ++columna;
+                        break;
+                    default:
+                        System.err.println("Error lexico ("+t.fila+","+t.columna+"): caracter ’"+read+"’ incorrecto");
+                        System.exit(-1);
                 }
                 
-                if(read==EOF){
-                    t.tipo=Token.EOF;
+            }
+            else{ 
+                if(esFinal(nuevo)){//Si el nodo es final
+                    estado=nuevo;
+                    if(read==EOF){
+                        t.tipo=Token.EOF;
+                        return t;
+                    }
+//                    System.out.println(t.lexema+ " Estado:"+estado);
+                    switch(estado){
+                        case 4:
+                            t.tipo=Token.MULOP;
+                            rollBack();
+                            --columna;
+                            break;
+                        case 9:
+                            t.tipo= Token.REAL ;
+                            rollBack();
+                            --columna;
+                            break;
+                        case 10:
+                            t.tipo=Token.ENTERO;
+                            rollBack();
+                            --columna;
+                            break;
+                        case 11:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.MULOP;
+                            break;
+                        case 13:
+                            t.tipo=reservada(t.lexema);
+                            rollBack();
+                            --columna;
+                            break;
+                        case 14:
+                            t.tipo=Token.ENTERO;
+                            rollBack();
+                            rollBack();
+                            --columna;
+                            --columna;
+                            break;
+                    }
+                    t.fila=fila;
+                    t.columna=columna;
                     return t;
                 }
-                
-                switch(estado){
-                    case 4:
-                        t.tipo=Token.MULOP;
-                        --t.columna;
-                        break;
-                    case 9:
-                        t.tipo= Token.REAL ;
-                        --t.columna;
-                        break;
-                    case 10:
-                        t.tipo=Token.ENTERO;
-                        --t.columna;
-                    case 11:
-                        t.tipo= Token.MULOP;
-                        break;
-                    case 13:
-                        t.tipo=reservada(t.lexema);
-                        --t.columna;
-                        break;
+                else{
+                    //System.out.println("El lexema es: "+t.lexema+" en el estado:"+estado);
+                    if(nuevo==1){
+                        t.lexema="";
+                    }
+                    else{
+                        t.lexema=t.lexema+read;
+                    }
+                    ++columna;
+
+                    estado=nuevo;
+
+                    read=leerCaracter();
+                    ++pos;
                 }
-                
-                
-                return t;
-      
-            }
-            else{
-                t.lexema=t.lexema+read;
-                ++t.columna;
-                estado=nuevo;
-                read=leerCaracter();
             }
             
         }while(true);
     }
     
     public boolean esFinal(int estado){
-    	if(estado==4 || estado==9 || estado==11 || estado==13 || estado==10){
+    	if(estado==4 || estado==9 || estado==11 || estado==13 || estado==10 || estado == 14){
             return true;
     	}
     	else{
@@ -173,7 +230,7 @@ public class AnalizadorLexico {
                     return 8;
                 }
                 else{
-                    return -1;
+                    return 14;
                 }
             case 8:
                 if(c>='0' && c<='9'){
@@ -193,9 +250,11 @@ public class AnalizadorLexico {
                     return 12;
                 }
                 else{
-                    return -1;
+                    return 13;
                 }
             case 13: //Estado final identificador
+                    return -1;
+            case 14: //Estado final numero entero //Volverá 2 posiciones atrás
                     return -1;
             default: // error interno
                 return -1;

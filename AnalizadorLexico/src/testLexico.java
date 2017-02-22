@@ -4,7 +4,7 @@ import java.io.*;
 class testLexico {
 
     public static String toString(Token t){
-		return "("+t.fila+","+t.columna+"): "+t.lexema+" es de tipo "+t.tipo+'\n'; 
+		return "("+t.fila+","+t.columna+"): "+t.lexema+" es de tipo "+t.tipo+" : "+t.toString()+'\n'; 
     }
 
 
@@ -13,10 +13,10 @@ class testLexico {
         AnalizadorLexico al;
         Token t;
 
-        RandomAccessFile entrada = null;
+        RandomAccessFile entrada;
 
         try {
-            entrada = new RandomAccessFile(args[0],"r");
+            entrada = new RandomAccessFile("/home/ara65/Escritorio/PL/AnalizadorLexico/src/test.txt"/*args[0]*/,"r");
             al = new AnalizadorLexico(entrada);
 
             while ((t=al.siguienteToken()).tipo != Token.EOF) {
