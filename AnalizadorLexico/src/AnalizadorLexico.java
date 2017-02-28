@@ -91,8 +91,13 @@ public class AnalizadorLexico {
                         nuevo=delta(estado,read);
                         ++columna;
                         break;
+                    case (char)-1:
+                        t.tipo=Token.EOF;
+                        t.fila=fila;
+                        t.columna=columna;
+                        return t;
                     default:
-                        System.err.println("Error lexico ("+t.fila+","+t.columna+"): caracter ’"+read+"’ incorrecto");
+                        System.err.println("Error lexico ("+fila+","+columna+"): caracter ’"+read+"’ incorrecto");
                         System.exit(-1);
                 }
                 
@@ -100,10 +105,7 @@ public class AnalizadorLexico {
             else{ 
                 if(esFinal(nuevo)){//Si el nodo es final
                     estado=nuevo;
-                    if(read==EOF){
-                        t.tipo=Token.EOF;
-                        return t;
-                    }
+                    
 //                    System.out.println(t.lexema+ " Estado:"+estado);
                     switch(estado){
                         case 4:
@@ -132,14 +134,53 @@ public class AnalizadorLexico {
                             break;
                         case 14:
                             t.tipo=Token.ENTERO;
+                            t.lexema=t.lexema.substring(0, t.lexema.length()-1);
                             rollBack();
                             rollBack();
                             --columna;
                             --columna;
                             break;
+                        case 15:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.PARI;
+                            break;
+                        case 16:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.PARD;
+                            break;
+                        case 17:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.ADDOP;
+                            break;
+                        case 18:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.ASIG;
+                            break;
+                        case 19:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.PYC;
+                            break;
+                        case 20:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.DOSP;
+                            break;
+                        case 21:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.COMA;
+                            break;
+                        case 22:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.LLAVEI;
+                            break;
+                        case 23:
+                            t.lexema=t.lexema+read;
+                            t.tipo= Token.LLAVED;
+                            break;
                     }
                     t.fila=fila;
                     t.columna=columna;
+                    
+                    
                     return t;
                 }
                 else{
@@ -163,7 +204,7 @@ public class AnalizadorLexico {
     }
     
     public boolean esFinal(int estado){
-    	if(estado==4 || estado==9 || estado==11 || estado==13 || estado==10 || estado == 14){
+    	if(estado==4 || estado==9 || estado==11 || estado==13 || estado==10 || estado >= 14){
             return true;
     	}
     	else{
@@ -173,21 +214,42 @@ public class AnalizadorLexico {
 
     public int delta (int estado, int c) {
         switch (estado) {
-            case 1: 
-                if(c=='*'){
-                    return 11;
-                }
-                else if(c=='/'){
-                    return 2;
-                }
-                else if(c>='0' && c<='9'){
+            case 1:
+                if(c>='0' && c<='9'){
                     return 6;
                 }
                 else if ((c>='a' && c<='z')||(c>='A'&&c<='Z')){
                     return 12;
                 }
-                else{
-                    return -1;
+                else{//Casos únicos
+                    switch(c){
+                        case '/':
+                            return 2;
+                        case '*':
+                            return 11;
+                        case '(':
+                            return 15;
+                        case ')':
+                            return 16;
+                        case '+':
+                            return 17;
+                        case '-':
+                            return 17;
+                        case '=':
+                            return 18;
+                        case ';':
+                            return 19;
+                        case ':':
+                            return 20;
+                        case ',':
+                            return 21;
+                        case '{':
+                            return 22;
+                        case '}':
+                            return 23;
+                        default:
+                            return -1;
+                    }
                 }
             case 2: 
                 if(c=='*'){
@@ -256,6 +318,25 @@ public class AnalizadorLexico {
                     return -1;
             case 14: //Estado final numero entero //Volverá 2 posiciones atrás
                     return -1;
+            case 15: //Estado final pari
+                    return -1;
+            case 16: //Estado final pard
+                    return -1;
+            case 17: //Estado final adop
+                    return -1;
+            case 18: //Estado final asig
+                    return -1;
+            case 19: //Estado final pyc
+                    return -1;
+            case 20: //Estado final dosp
+                    return -1;
+            case 21: //Estado final coma
+                    return -1;
+            case 22: //Estado final llavei
+                    return -1;
+            case 23: //Estado final llaved
+                    return -1;
+
             default: // error interno
                 return -1;
         }

@@ -6,4 +6,11 @@
 2/5
 a16854
 84asd6f
-2*3 a23+96
+class
+private
+public
+int
+return
+float
+()+-;:,={}
+2*3 a23+96.

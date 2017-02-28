@@ -20,7 +20,7 @@ public class Token {
         PARI = 1,
         PARD = 2,
         MULOP = 3,
-        ADOP = 4,
+        ADDOP = 4,
         PYC = 5,
         DOSP = 6,
         COMA = 7,
@@ -107,7 +107,7 @@ public class Token {
                 res= "'int'";
                 break;
             case 16:
-                res= "'resturn'";
+                res= "'return'";
                 break;
             case 17:
                 res= "numero entero";
