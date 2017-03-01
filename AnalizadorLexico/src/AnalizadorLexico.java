@@ -73,7 +73,6 @@ public class AnalizadorLexico {
                         ++pos;
                         estado=1;
                         nuevo=delta(estado,read);
-                        ++columna;
                         break;
                     case '\n':
                         read=leerCaracter();
@@ -89,7 +88,6 @@ public class AnalizadorLexico {
                         ++pos;
                         estado=1;
                         nuevo=delta(estado,read);
-                        ++columna;
                         break;
                     case (char)-1:
                         t.tipo=Token.EOF;
@@ -111,26 +109,23 @@ public class AnalizadorLexico {
                         case 4:
                             t.tipo=Token.MULOP;
                             rollBack();
-                            --columna;
                             break;
                         case 9:
                             t.tipo= Token.REAL ;
                             rollBack();
-                            --columna;
                             break;
                         case 10:
                             t.tipo=Token.ENTERO;
                             rollBack();
-                            --columna;
                             break;
                         case 11:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.MULOP;
+                            ++columna;
                             break;
                         case 13:
                             t.tipo=reservada(t.lexema);
                             rollBack();
-                            --columna;
                             break;
                         case 14:
                             t.tipo=Token.ENTERO;
@@ -138,49 +133,55 @@ public class AnalizadorLexico {
                             rollBack();
                             rollBack();
                             --columna;
-                            --columna;
                             break;
                         case 15:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.PARI;
+                            ++columna;
                             break;
                         case 16:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.PARD;
+                            ++columna;
                             break;
                         case 17:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.ADDOP;
+                            ++columna;
                             break;
                         case 18:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.ASIG;
+                            ++columna;
                             break;
                         case 19:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.PYC;
+                            ++columna;
                             break;
                         case 20:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.DOSP;
+                            ++columna;
                             break;
                         case 21:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.COMA;
+                            ++columna;
                             break;
                         case 22:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.LLAVEI;
+                            ++columna;
                             break;
                         case 23:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.LLAVED;
+                            ++columna;
                             break;
                     }
                     t.fila=fila;
-                    t.columna=columna;
-                    
-                    
+                    t.columna=columna;                  
                     return t;
                 }
                 else{
