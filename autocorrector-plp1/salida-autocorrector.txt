@@ -1,0 +1,43 @@
+*********************************************************
+Autocorrector plp1 
+ Generando ficheros auxiliares... 
+*********************************************************
+ Compilando...
+*********************************************************
+
+*********************************************************
+ Ejecutando y comprobando salida a la vez...
+*********************************************************
+Prueba: p01
+OK
+--------------------------
+Prueba: p02
+OK
+--------------------------
+Prueba: p03
+OK
+--------------------------
+Prueba: p04
+--- Fallo en los errores ----------
+1c1
+< Error sintactico: encontrado fin de fichero, esperaba } 'class' 'private' 'float' 'int' 
+---
+> Error sintactico: encontrado fin de fichero, esperaba 'class' } 'private' 'int' 'float' 
+--------------------------
+Prueba: p05
+OK
+--------------------------
+Prueba: p06
+--- Fallo en los errores ----------
+1c1
+< Error sintactico (10,8): encontrado 'return', esperaba ) * / + - ; 
+---
+> Error sintactico (10,8): encontrado 'return', esperaba ) ; + - * / 
+--------------------------
+
+OJO: FALLAN 2 PRUEBAS DEL AUTOCORRECTOR
+
+
+
+AVISO IMPORTANTE: este autocorrector NO prueba todos los casos posibles
+

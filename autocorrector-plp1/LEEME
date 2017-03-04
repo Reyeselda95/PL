@@ -1,0 +1,34 @@
+Autocorrector de la práctica 1 de PL, curso 2016-2017
+=====================================================
+
+Instrucciones de uso:
+
+1) Copia el fichero plp1.java y el resto de fuentes .java en el directorio 
+(o carpeta) en el que está este fichero LEEME
+
+
+2) Ejecuta el autocorrector:
+
+ ./autocorrector-plp1.sh
+
+ Si la salida es muy larga, es mejor dirigirla a un fichero:
+
+ ./autocorrector-plp1.sh > salida-autocorrector
+
+
+AVISO: en cada ejecución, el autocorrector borra todos los archivos
+acabados en .class
+
+
+3) Puedes probar el analizador léxico por separado ejecutando el script
+
+   ./autocorrector-plp1-solo-lexico.sh
+
+ que compilará los ficheros Token.java y AnalizadorLexico.java junto con el
+ fichero testLexico.java, y después probará solamente el analizador léxico
+ (no es necesario tener el resto de la práctica acabada)
+
+  Para este script la salida esperada está en el directorio
+'salida-esperada-lexico'
+
+

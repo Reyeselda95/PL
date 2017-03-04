@@ -1,0 +1,22 @@
+
+class p05 {
+  public:
+    int metodo(int i) {
+      int j;
+
+      {
+        float i;
+
+        j=8;
+        i=j/5.4;
+      };
+      {
+        {
+          float i;
+          float j;
+
+          return i+j;
+        };
+      };
+    }
+}
