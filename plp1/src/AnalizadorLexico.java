@@ -103,8 +103,7 @@ public class AnalizadorLexico {
             }
             else{ 
                 if(esFinal(nuevo)){//Si el nodo es final
-                    estado=nuevo;
-                    
+                    estado=nuevo;    
 //                    System.out.println(t.lexema+ " Estado:"+estado);
                     switch(estado){
                         case 4:
@@ -264,6 +263,9 @@ public class AnalizadorLexico {
                 if(c=='*'){
                     return 5;
                 }
+                else if(c==EOF){
+                    System.err.println("Error lexico: fin de fichero inesperado");
+                }
                 else{
                     return 3;
                 }
@@ -275,6 +277,9 @@ public class AnalizadorLexico {
                 }
                 else if(c=='*'){
                     return 5;
+                }
+                else if(c==EOF){
+                    System.err.println("Error lexico: fin de fichero inesperado");
                 }
                 else{
                     return 3;

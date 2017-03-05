@@ -15,9 +15,9 @@ import java.io.RandomAccessFile;
  */
 class plp1 {
     public static void main(String[] args) {
-    //if (args.length == 1){
+    if (args.length == 1){
         try {
-            RandomAccessFile entrada = new RandomAccessFile("/home/ara65/Escritorio/PL/plp1/test/testSintactico.txt"/*args[0]*/,"r");
+            RandomAccessFile entrada = new RandomAccessFile(args[0],"r");
             AnalizadorLexico al = new AnalizadorLexico(entrada);
             AnalizadorSintacticoDR asdr = new AnalizadorSintacticoDR(al);
             asdr.S(); // simbolo inicial de la gramatica
@@ -26,7 +26,7 @@ class plp1 {
         catch (FileNotFoundException e) {
             System.out.println("Error, fichero no encontrado: " + args[0]);
         }
-    /*}
-        else System.out.println("Error, uso: java plp1 <nomfichero>");*/
+    }
+        else System.out.println("Error, uso: java plp1 <nomfichero>");
     }
 }
