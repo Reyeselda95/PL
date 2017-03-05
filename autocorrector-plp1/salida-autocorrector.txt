@@ -18,24 +18,16 @@ Prueba: p03
 OK
 --------------------------
 Prueba: p04
---- Fallo en los errores ----------
-1c1
-< Error sintactico: encontrado fin de fichero, esperaba } 'class' 'private' 'float' 'int' 
----
-> Error sintactico: encontrado fin de fichero, esperaba 'class' } 'private' 'int' 'float' 
+OK
 --------------------------
 Prueba: p05
 OK
 --------------------------
 Prueba: p06
---- Fallo en los errores ----------
-1c1
-< Error sintactico (10,8): encontrado 'return', esperaba ) * / + - ; 
----
-> Error sintactico (10,8): encontrado 'return', esperaba ) ; + - * / 
+OK
 --------------------------
 
-OJO: FALLAN 2 PRUEBAS DEL AUTOCORRECTOR
+TODAS LAS PRUEBAS DEL AUTOCORRECTOR FUNCIONAN
 
 
 

@@ -115,7 +115,7 @@ public class AnalizadorSintacticoDR {
             //EPSILON
             addRegla(8);
         }
-        else errorSintaxis(Token.LLAVED,Token.CLASS,Token.PRIVATE,Token.FLOAT,Token.INT);
+        else errorSintaxis(Token.CLASS,Token.LLAVED,Token.PRIVATE,Token.INT,Token.FLOAT);
     }
     
     /**
@@ -137,7 +137,7 @@ public class AnalizadorSintacticoDR {
             addRegla(10);
             C();
         }
-        else errorSintaxis(Token.CLASS,Token.FLOAT,Token.INT);
+        else errorSintaxis(Token.CLASS,Token.INT,Token.FLOAT);
     }
     
     /**
@@ -152,7 +152,7 @@ public class AnalizadorSintacticoDR {
             addRegla(12);
             Bloque();
         }
-        else errorSintaxis(Token.PYC,Token.LLAVEI);
+        else errorSintaxis(Token.LLAVEI,Token.PYC);
     }
     
     /**
@@ -185,7 +185,7 @@ public class AnalizadorSintacticoDR {
             addRegla(16);
             pair(Token.FLOAT);
         }
-        else errorSintaxis(Token.FLOAT,Token.INT);
+        else errorSintaxis(Token.INT,Token.FLOAT);
     }
     
     /**
@@ -215,7 +215,7 @@ public class AnalizadorSintacticoDR {
             //EPSILON
             addRegla(19);
         }
-        else errorSintaxis(Token.LLAVEI, Token.LLAVED, Token.FLOAT, Token.INT, Token.RETURN, Token.ID);
+        else errorSintaxis(Token.ID, Token.LLAVEI, Token.LLAVED, Token.INT, Token.FLOAT, Token.RETURN);
     }
     
     /**
@@ -242,7 +242,7 @@ public class AnalizadorSintacticoDR {
             pair(Token.RETURN);
             Expr();
         }
-        else errorSintaxis(Token.LLAVEI, Token.FLOAT, Token.INT, Token.RETURN, Token.ID);
+        else errorSintaxis(Token.ID, Token.LLAVEI, Token.INT, Token.FLOAT, Token.RETURN);
     }
     
     /**
@@ -254,7 +254,7 @@ public class AnalizadorSintacticoDR {
             Term();
             ExprP();
         }
-        else errorSintaxis(Token.PARI, Token.ID, Token.ENTERO, Token.REAL);
+        else errorSintaxis(Token.ID, Token.PARI, Token.REAL, Token.ENTERO);
     }
     
     /**
@@ -271,7 +271,7 @@ public class AnalizadorSintacticoDR {
             addRegla(26);
             //EPSILON
         }
-        else errorSintaxis(Token.PARD, Token.ADDOP, Token.PYC);
+        else errorSintaxis(Token.PARD, Token.PYC, Token.ADDOP);
     }
     
     /**
@@ -283,7 +283,7 @@ public class AnalizadorSintacticoDR {
             Factor();
             TermP();
         }
-        else errorSintaxis(Token.PARI, Token.ID, Token.ENTERO, Token.REAL);
+        else errorSintaxis(Token.ID, Token.PARI, Token.REAL, Token.ENTERO);
     }
     
     /**
@@ -300,7 +300,7 @@ public class AnalizadorSintacticoDR {
             //EPSILON
             addRegla(29);
         }
-        else errorSintaxis(Token.PARD, Token.MULOP, Token.ADDOP, Token.PYC);
+        else errorSintaxis(Token.PARD, Token.PYC, Token.ADDOP, Token.MULOP);
     }
     
     /**
@@ -325,7 +325,7 @@ public class AnalizadorSintacticoDR {
             Expr();
             pair(Token.PARD);
         }
-        else errorSintaxis(Token.PARI, Token.ENTERO, Token.ID, Token.REAL);
+        else errorSintaxis(Token.ID, Token.PARI, Token.REAL, Token.ENTERO);
     }
     
 /////////////////////////////////////////////////////////////////////////////////////
@@ -358,7 +358,7 @@ public class AnalizadorSintacticoDR {
             t.tipo=args[i];
             System.err.print(" "+ t.toString());
         }
-            System.err.print(" \n");
+        System.err.print(" \n");
         
         System.exit(-1);
     }

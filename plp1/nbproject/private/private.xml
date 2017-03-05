@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ara65/Escritorio/PL/AnalizadorLexico/src/test.txt</file>
-            <file>file:/home/ara65/Escritorio/PL/AnalizadorLexico/src/AnalizadorSintacticoDR.java</file>
-            <file>file:/home/ara65/Escritorio/PL/AnalizadorLexico/src/plp1.java</file>
-            <file>file:/home/ara65/Escritorio/PL/AnalizadorLexico/src/Token.java</file>
+            <file>file:/home/ara65/Escritorio/PL/plp1/src/testSintactico.txt</file>
+            <file>file:/home/ara65/Escritorio/PL/plp1/src/AnalizadorSintacticoDR.java</file>
+            <file>file:/home/ara65/Escritorio/PL/plp1/src/plp1.java</file>
+            <file>file:/home/ara65/Escritorio/PL/plp1/src/Token.java</file>
         </group>
     </open-files>
 </project-private>

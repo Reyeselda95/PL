@@ -1,1 +1,1 @@
-Error sintactico (6,11): encontrado '9', esperaba identificador 
+Error lexico (6,12): caracter '.' incorrecto
