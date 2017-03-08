@@ -1,0 +1,12 @@
+
+class p06 {
+  private:
+    class p0601 {}
+    int metodo(int a) {
+       int b;
+
+       b = a+3
+
+       return b;
+    }
+}

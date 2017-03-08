@@ -1,0 +1,18 @@
+
+class p05 {
+  public:
+    int metodo(int i) {
+
+      {
+
+        j=8;
+        i=j;
+      };
+      {
+        {
+
+          return=2.567;
+        };
+      };
+    }
+}

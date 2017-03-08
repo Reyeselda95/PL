@@ -1,0 +1,10 @@
+class A {
+    public:
+      int f1(int n,float s);
+      float ff1(float r) {
+        return=2;
+      }
+    private:
+      class B {
+      }
+}
