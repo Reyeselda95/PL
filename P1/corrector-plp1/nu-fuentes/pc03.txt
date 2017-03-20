@@ -1,0 +1,8 @@
+
+class pc03 {
+   private:
+    int classs(int integer);
+    float publicar(float f) {
+       7a = 7;
+    }
+}

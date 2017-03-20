@@ -1,0 +1,22 @@
+Corrector de la práctica 1 de PL, curso 2016-2017
+=====================================================
+
+Instrucciones de uso:
+
+1) Copia el fichero plp1.java y el resto de fuentes .java en el directorio 
+(o carpeta) en el que está este fichero LEEME
+
+
+2) Ejecuta el corrector:
+
+ ./corrector-plp1.sh
+
+ Si la salida es muy larga, es mejor dirigirla a un fichero:
+
+ ./corrector-plp1.sh > salida-autocorrector
+
+
+AVISO: en cada ejecución, el corrector borra todos los archivos
+acabados en .class
+
+

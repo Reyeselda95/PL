@@ -1,0 +1,7 @@
+
+class pc01 {
+  public /* un
+   comentario 
+  que 
+ no
+terminaaaaaaaaaa

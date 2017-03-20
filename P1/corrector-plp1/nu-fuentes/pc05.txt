@@ -1,0 +1,18 @@
+
+class pc05 {
+
+   private :
+     int m1(float f);
+     float m2(int i);
+     
+     class unaClase {
+        public :
+          int unMetodo(int a);
+     }
+
+     class otraClase
+       private :            /* error en 'private', esperaba '{' */
+         int seMeHaOlvidadoLaLlave(float f) {
+            return 7;
+         }
+}

@@ -1,0 +1,7 @@
+
+class pc07 {
+  private :
+
+    int f(int a);
+    return     algo que va a cascar
+

@@ -265,6 +265,7 @@ public class AnalizadorLexico {
                 }
                 else if(c==EOF){
                     System.err.println("Error lexico: fin de fichero inesperado");
+                    System.exit(-1);
                 }
                 else{
                     return 3;

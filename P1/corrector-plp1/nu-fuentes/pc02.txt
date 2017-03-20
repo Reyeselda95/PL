@@ -1,0 +1,6 @@
+
+class pc02 {
+
+  public : /*comentario*/ private : public :
+
+}

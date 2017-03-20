@@ -1,0 +1,39 @@
+
+class pc06 {
+
+   public:
+     class una {
+     }
+     class dos {
+       public:
+         int unMetodo(int a,int b,float c) {
+             a = b*2.5/3.7-8.0+2*c-2*(a+b+c);
+             return (a*b)+c;
+         }
+     }
+     int m1(int i,int j,int k);
+     int m2(float a,float b,float c, int i, int inte, int ka) {
+
+          a = 7;
+          b = 9;
+          c = 10;
+          return 00007;
+          inte = i+ka;
+          {
+             c = 123.456;
+             int i;
+             i = inte-ka;
+             {
+                
+             };
+          };
+     }
+    
+   private:
+     
+     class tres {
+       private :
+            float f(float g,float h,float i,float j);
+     }
+}
+
