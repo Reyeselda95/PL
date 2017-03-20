@@ -13,20 +13,19 @@ import java.io.RandomAccessFile;
  * @author REYES ALBILLAR, ALEJANDRO <ara65@alu.ua.es>
  * <el_reyes_95@hotmmail.com> <el.reyes.95@gmail.com>
  */
-class plp1 {
+class plp2 {
     public static void main(String[] args) {
     //if (args.length == 1){
         try {
             RandomAccessFile entrada = new RandomAccessFile("/home/ara65/Escritorio/PL/plp1/test/testSintactico.txt"/*args[0]*/,"r");
             AnalizadorLexico al = new AnalizadorLexico(entrada);
-            AnalizadorSintacticoDR asdr = new AnalizadorSintacticoDR(al);
-            asdr.S(); // simbolo inicial de la gramatica
-            asdr.comprobarFinFichero();
+            AnalizadorSintacticoSLR aslr = new AnalizadorSintacticoSLR(al);
+            aslr.analizar();
         }
         catch (FileNotFoundException e) {
             System.out.println("Error, fichero no encontrado: " + args[0]);
         }
     /*}
-        else System.out.println("Error, uso: java plp1 <nomfichero>");*/
+        else System.out.println("Error, uso: java plp2 <nomfichero>");*/
     }
 }

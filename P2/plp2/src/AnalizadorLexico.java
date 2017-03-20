@@ -38,8 +38,6 @@ public class AnalizadorLexico {
                 return Token.FLOAT;
             case "int":
                 return Token.INT;
-            case "return":
-                return Token.RETURN;
             default:
                 return Token.ID;       
         }
@@ -106,10 +104,6 @@ public class AnalizadorLexico {
                     estado=nuevo;    
 //                    System.out.println(t.lexema+ " Estado:"+estado);
                     switch(estado){
-                        case 4:
-                            t.tipo=Token.MULOP;
-                            rollBack();
-                            break;
                         case 9:
                             t.tipo= Token.REAL ;
                             rollBack();
@@ -117,11 +111,6 @@ public class AnalizadorLexico {
                         case 10:
                             t.tipo=Token.ENTERO;
                             rollBack();
-                            break;
-                        case 11:
-                            t.lexema=t.lexema+read;
-                            t.tipo= Token.MULOP;
-                            ++columna;
                             break;
                         case 13:
                             t.tipo=reservada(t.lexema);
@@ -142,11 +131,6 @@ public class AnalizadorLexico {
                         case 16:
                             t.lexema=t.lexema+read;
                             t.tipo= Token.PARD;
-                            ++columna;
-                            break;
-                        case 17:
-                            t.lexema=t.lexema+read;
-                            t.tipo= Token.ADDOP;
                             ++columna;
                             break;
                         case 18:
@@ -205,7 +189,7 @@ public class AnalizadorLexico {
     }
     
     public boolean esFinal(int estado){
-    	if(estado==4 || estado==9 || estado==11 || estado==13 || estado==10 || estado >= 14){
+    	if(estado==9  || estado==13 || estado==10 || (estado >= 14 && estado <17) || estado > 17){
             return true;
     	}
     	else{
@@ -226,16 +210,10 @@ public class AnalizadorLexico {
                     switch(c){
                         case '/':
                             return 2;
-                        case '*':
-                            return 11;
                         case '(':
                             return 15;
                         case ')':
                             return 16;
-                        case '+':
-                            return 17;
-                        case '-':
-                            return 17;
                         case '=':
                             return 18;
                         case ';':
@@ -257,7 +235,7 @@ public class AnalizadorLexico {
                     return 3;
                 }
                 else{
-                    return 4;
+                    return -1;//Error léxico
                 }
             case 3: 
                 if(c=='*'){
@@ -270,8 +248,6 @@ public class AnalizadorLexico {
                 else{
                     return 3;
                 }
-            case 4: //Estado final mulop
-                return -1;
             case 5: 
                 if(c=='/'){
                     return 1;
@@ -281,6 +257,7 @@ public class AnalizadorLexico {
                 }
                 else if(c==EOF){
                     System.err.println("Error lexico: fin de fichero inesperado");
+                    System.exit(-1);
                 }
                 else{
                     return 3;
@@ -313,8 +290,6 @@ public class AnalizadorLexico {
                 return -1;
             case 10: //Estado final numero entero
                 return -1;
-            case 11: //Estado final mulop
-                return -1;
             case 12:
                 if((c>='0' && c<='9')||(c>='a' && c<='z')||(c>='A'&&c<='Z')){
                     return 12;
@@ -329,8 +304,6 @@ public class AnalizadorLexico {
             case 15: //Estado final pari
                     return -1;
             case 16: //Estado final pard
-                    return -1;
-            case 17: //Estado final adop
                     return -1;
             case 18: //Estado final asig
                     return -1;

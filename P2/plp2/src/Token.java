@@ -20,24 +20,21 @@ public class Token {
     public static final int 
         PARI = 0,
         PARD = 1,
-        MULOP = 2,
-        ADDOP = 3,
-        PYC = 4,
-        DOSP = 5,
-        COMA = 6,
-        ASIG = 7,
-        LLAVEI = 8,
-        LLAVED = 9,
-        CLASS = 10,
-        PUBLIC = 11,
-        PRIVATE = 12,
-        FLOAT = 13,
-        INT = 14,
-        RETURN = 15,
-        ENTERO = 16,
-        ID = 17,
-        REAL = 18,
-        EOF = 19;
+        PYC = 2,
+        DOSP = 3,
+        COMA = 4,
+        ASIG = 5,
+        LLAVEI = 6,
+        LLAVED = 7,
+        CLASS = 8,
+        PUBLIC = 9,
+        PRIVATE = 10,
+        FLOAT = 11,
+        INT = 12,
+        ENTERO = 13,
+        ID = 14,
+        REAL = 15,
+        EOF = 16;
     /**
      * Default Constructor
      */
@@ -69,54 +66,45 @@ public class Token {
                 res= ")";
                 break;
             case 2:
-                res= "* /";
-                break;
-            case 3:
-                res= "+ -";
-                break;
-            case 4:
                 res= ";";
                 break;
-            case 5:
+            case 3:
                 res= ":";
                 break;
-            case 6:
+            case 4:
                 res= ",";
                 break;
-            case 7:
+            case 5:
                 res= "=";
                 break;
-            case 8:
+            case 6:
                 res= "{";
                 break;
-            case 9:
+            case 7:
                 res= "}";
                 break;
-            case 10:
+            case 8:
                 res= "'class'";
                 break;
-            case 11:
+            case 9:
                 res= "'public'";
                 break;
-            case 12:
+            case 10:
                 res= "'private'";
                 break;
-            case 13:
+            case 11:
                 res= "'float'";
                 break;
-            case 14:
+            case 12:
                 res= "'int'";
                 break;
-            case 15:
-                res= "'return'";
-                break;
-            case 16:
+            case 13:
                 res= "numero entero";
                 break;
-            case 17:
+            case 14:
                 res= "identificador";
                 break;
-            case 18:
+            case 15:
                 res= "numero real";
                 break;
         }
