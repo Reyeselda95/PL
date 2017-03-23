@@ -17,7 +17,7 @@ class plp2 {
     public static void main(String[] args) {
     //if (args.length == 1){
         try {
-            RandomAccessFile entrada = new RandomAccessFile("/home/ara65/Escritorio/PL/P2/plp2/test/testSintactico.txt"/*args[0]*/,"r");
+            RandomAccessFile entrada = new RandomAccessFile(/*"/home/ara65/Escritorio/PL/P2/plp2/test/testSintactico.txt"*/args[0],"r");
             AnalizadorLexico al = new AnalizadorLexico(entrada);
             AnalizadorSintacticoSLR aslr = new AnalizadorSintacticoSLR(al);
             aslr.analizar();

@@ -1,11 +1,10 @@
-
-class p04 {
-   private:
-      class p0401 {
-        public:
-          int metodo(int a) {
-            return a*a+a*a*a+a/a-a/a/a;
-          }
+class A {
+    public:
+      int f1(int n,float s);
+      float ff1(float r) {
+        return=2;
       }
-/* falta '}' */
-
+    private:
+      class B {
+      }
+}
