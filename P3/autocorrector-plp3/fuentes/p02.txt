@@ -1,0 +1,29 @@
+
+ 
+  class A {
+    public:
+      int f1(int n,float s);
+      float ff1(float r) {
+        int i;
+        
+        i = 2*3;
+        {
+          int r;
+ 
+          r = 35/7;
+          i = i - r + 4;
+        };
+        return i+r;
+      }
+    private:
+      class B {
+        public:
+          int ff2(int a,int b) {
+            return a+b*b;
+          }
+        private: 
+          float f2 (float r,float s,float t);
+          class C {}
+      }
+  }
+

@@ -1,0 +1,11 @@
+
+class pc04 {
+
+  public :
+
+    int metodo(int a) {
+
+       a = 7);  /* error en '(', esperaba ';'  */
+    }
+
+}

@@ -62,6 +62,13 @@ public class AnalizadorLexico {
         ++pos;
         do{
             nuevo=delta(estado,read);
+            if(nuevo==4){//Caso especial
+                rollBack();
+                rollBack();
+                --columna;
+                read=leerCaracter();
+                nuevo=-1;
+            }
             if(nuevo==-1)//Si el estado es error
             {
                // System.out.println("He entrado aqui por el caracter: "+read+" con el estado:"+nuevo);
@@ -235,7 +242,7 @@ public class AnalizadorLexico {
                     return 3;
                 }
                 else{
-                    return -1;//Error léxico
+                    return 4;//Error léxico
                 }
             case 3: 
                 if(c=='*'){

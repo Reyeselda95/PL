@@ -73,12 +73,12 @@ public class AnalizadorSintacticoSLR {
                     break;
                 case "r":
                     ir=aplicaRegla(actual);
-                   // imprimeEstado();
+                  //  imprimeEstado();
                     estado.push(irA(estado.lastElement(),ir));
-                   // imprimeEstado();
+                  //  imprimeEstado();
                     break;
                 case "aceptar":
-                   // imprimeEstado();
+                  //  imprimeEstado();
                     fin=true;
                     break;
                 default://Error

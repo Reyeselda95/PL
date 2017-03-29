@@ -1,0 +1,19 @@
+
+class p03 {
+
+  public: 
+
+    int metodo1(float p1,int p2,float p3) {
+      a = a/*comentario*/ /*otro comentario*/;
+    }
+
+  private:
+   float metodo2(int pp1);
+   int metodo3(float f,int i) {
+
+     j = i;
+     f = 123.45;
+ 
+     return=i;
+   }
+}
