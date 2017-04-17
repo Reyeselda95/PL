@@ -1,0 +1,35 @@
+*********************************************************
+Autocorrector plp3 
+ Generando ficheros auxiliares... 
+*********************************************************
+ Compilando...
+*********************************************************
+
+*********************************************************
+ Ejecutando y comprobando salida a la vez...
+*********************************************************
+Prueba: p01
+OK
+--------------------------
+Prueba: p02
+OK
+--------------------------
+Prueba: p03
+OK
+--------------------------
+Prueba: p04
+OK
+--------------------------
+Prueba: p05
+OK
+--------------------------
+Prueba: p06
+OK
+--------------------------
+
+TODAS LAS PRUEBAS DEL AUTOCORRECTOR FUNCIONAN
+
+
+
+AVISO IMPORTANTE: este autocorrector NO prueba todos los casos posibles
+

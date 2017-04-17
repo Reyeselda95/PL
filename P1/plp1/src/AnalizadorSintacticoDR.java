@@ -55,7 +55,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Regla 2
      */
-    public final void C(){
+    public final String C(){
         if (t.tipo == Token.CLASS ) {
             addRegla(2);
             pair(Token.CLASS);
@@ -71,7 +71,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 3 y 4
      */
-    public final void B(){
+    public final String B(){
         if (t.tipo == Token.PUBLIC) {
             addRegla(3);
             pair(Token.PUBLIC);
@@ -88,7 +88,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 5 y 6
      */
-    public final void V(){
+    public final String V(){
         if (t.tipo == Token.PRIVATE) {
             addRegla(5);
             pair(Token.PRIVATE);
@@ -105,7 +105,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 7 y 8
      */
-    public final void P(){
+    public final String P(){
         if (t.tipo == Token.CLASS || t.tipo==Token.INT || t.tipo==Token.FLOAT) {
             addRegla(7);
             D();
@@ -121,7 +121,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 9 y 10
      */
-    public final void D(){
+    public final String D(){
         if (t.tipo == Token.INT || t.tipo==Token.FLOAT) {
             addRegla(9);
             Tipo();
@@ -143,7 +143,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 11 y 12
      */
-    public final void Cod(){
+    public final String Cod(){
         if (t.tipo == Token.PYC) {
             addRegla(11);
             pair(Token.PYC);
@@ -158,7 +158,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 13 y 14
      */
-    public final void L(){
+    public final String L(){
         if (t.tipo == Token.COMA) {
             addRegla(13);
             pair(Token.COMA);
@@ -176,7 +176,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 15 y 16
      */
-    public final void Tipo(){
+    public final String Tipo(){
         if (t.tipo == Token.INT) {
             addRegla(15);
             pair(Token.INT);
@@ -191,7 +191,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Regla 17
      */
-    public final void Bloque(){
+    public final String Bloque(){
         if (t.tipo == Token.LLAVEI) {
             addRegla(17);
             pair(Token.LLAVEI);
@@ -204,7 +204,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 18 y 19
      */
-    public final void SecInstr(){
+    public final String SecInstr(){
         if (t.tipo == Token.INT || t.tipo==Token.FLOAT || t.tipo==Token.ID || t.tipo==Token.LLAVEI || t.tipo==Token.RETURN){
             addRegla(18);
             Instr();
@@ -221,7 +221,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 20, 21, 22 y 23
      */
-    public final void Instr(){
+    public final String Instr(){
         if (t.tipo == Token.INT || t.tipo==Token.FLOAT) {
             addRegla(20);
             Tipo();
@@ -248,7 +248,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Regla 24
      */
-    public final void Expr(){
+    public final String Expr(){
         if (t.tipo == Token.REAL || t.tipo==Token.ENTERO || t.tipo==Token.ID || t.tipo==Token.PARI) {
             addRegla(24);
             Term();
@@ -260,7 +260,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 25 y 26
      */
-    public final void ExprP(){
+    public final String ExprP(){
         if (t.tipo == Token.ADDOP) {
             addRegla(25);
             pair(Token.ADDOP);
@@ -277,7 +277,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Regla 27
      */
-    public final void Term(){
+    public final String Term(){
         if (t.tipo == Token.REAL || t.tipo==Token.ENTERO || t.tipo==Token.ID || t.tipo==Token.PARI) {
             addRegla(27);
             Factor();
@@ -289,7 +289,7 @@ public class AnalizadorSintacticoDR {
     /**
      * Reglas 28 y 29
      */
-    public final void TermP(){
+    public final String TermP(){
         if (t.tipo == Token.MULOP) {
             addRegla(28);
             pair(Token.MULOP);

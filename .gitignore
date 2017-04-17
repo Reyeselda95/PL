@@ -15,3 +15,6 @@ hs_err_pid*
 /P1/plp1/build/
 /P2/plp2/build/
 /P2/plp2/dist/
+/P3/plp3/nbproject/private/
+/P3/plp3/build/
+/P3/plp3/dist/
