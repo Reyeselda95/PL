@@ -1,0 +1,34 @@
+clase pc07{
+
+privado pc07::f (a:entero -> entero);
+privado pc07::dddd (a:real -> real)
+{
+
+{
+var a:entero;
+a := 7  ;
+
+{
+var a:real;
+a := itor(8  );
+
+{
+var a:entero;
+a := 3  ;
+
+{
+var a:real;
+a := 3.5  ;
+
+}
+
+}
+
+}
+
+}
+retorna itor(2 ) +r a ;
+
+}
+
+}

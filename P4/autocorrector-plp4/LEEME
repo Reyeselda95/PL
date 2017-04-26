@@ -1,0 +1,24 @@
+Autocorrector de la práctica 4 de PL, curso 2016-2017
+=====================================================
+
+Instrucciones de uso:
+
+1) Copia los ficheros plp4.l, plp4.y y comun.h en el directorio 
+(o carpeta) en el que está este fichero LEEME
+
+
+2) Ejecuta el autocorrector:
+
+ ./autocorrector-plp4.sh
+
+ Si la salida es muy larga, es mejor dirigirla a un fichero:
+
+ ./autocorrector-plp4.sh > salida
+
+
+AVISO: en cada ejecución, el autocorrector borra todos los archivos
+acabados en .class
+
+
+
+

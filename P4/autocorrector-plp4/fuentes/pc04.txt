@@ -1,0 +1,17 @@
+
+class pc04 {
+
+  public :
+
+    int metodo(int a) {
+
+       a = 7;
+       int b;
+       b = a;
+       float c;
+       float d;
+       c = 1.1;
+       d = a+b*c;
+    }
+
+}

@@ -1,0 +1,30 @@
+ clase A {
+publico A::f1 (n:entero x s:real -> entero);
+
+publico A::ff1 (r:real -> real)
+{
+var i:entero;
+i := 2 *i 3;
+{
+var r:entero;
+r := 35 /i 7;
+i := i -i r +i 4;
+}
+retorna itor(i) +r r;
+}
+
+privado clase A::B {
+publico A::B::ff2 (a:entero x b:entero -> entero)
+{
+retorna a +i b *i b;
+}
+
+privado A::B::f2 (r:real x s:real x t:real -> real);
+
+privado clase A::B::C {
+}
+
+}
+
+}
+

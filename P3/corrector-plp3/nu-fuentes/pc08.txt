@@ -1,0 +1,19 @@
+
+class pc08 {
+  public:
+    class A {
+      private:
+        class B {
+          public:
+            class C {
+            }
+        }
+        int C(int a,float b,int c,float d,int e);
+    }
+    class C {
+      public:
+        float B(float c) {
+           c = 1*2*3*4;
+        }
+    }
+}

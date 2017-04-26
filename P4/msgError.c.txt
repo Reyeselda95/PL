@@ -1,0 +1,44 @@
+
+//***-------------------- en comun.h -------------------------------
+
+#define ERRLEXICO    1
+#define ERRSINT      2
+#define ERREOF       3
+#define ERRLEXEOF    4
+
+void msgError(int nerror,int nlin,int ncol,const char *s);
+
+
+
+
+
+//***-------------------- en plp4.y -------------------------------
+
+void msgError(int nerror,int nlin,int ncol,const char *s)
+{
+     switch (nerror) {
+         case ERRLEXICO: fprintf(stderr,"Error lexico (%d,%d): caracter '%s' incorrecto\n",nlin,ncol,s);
+            break;
+         case ERRSINT: fprintf(stderr,"Error sintactico (%d,%d): en '%s'\n",nlin,ncol,s);
+            break;
+         case ERREOF: fprintf(stderr,"Error sintactico: fin de fichero inesperado\n");
+            break;
+         case ERRLEXEOF: fprintf(stderr,"Error lexico: fin de fichero inesperado\n");
+            break;
+     }
+        
+     exit(1);
+}
+
+int yyerror(char *s)
+{
+    if (findefichero) 
+    {
+       msgError(ERREOF,-1,-1,"");
+    }
+    else
+    {  
+       msgError(ERRSINT,nlin,ncol-strlen(yytext),yytext);
+    }
+}
+

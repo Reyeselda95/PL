@@ -1,0 +1,21 @@
+
+class pc07 {
+  private :
+
+    int f(int a);
+    float dddd(float a) {
+       {
+         int a; a=7;
+         {
+           float a; a=8;
+           {
+             int a; a=3;
+             {
+               float a; a=3.5;
+             };
+           };
+         };
+       };
+       return 2+a;
+    }
+}

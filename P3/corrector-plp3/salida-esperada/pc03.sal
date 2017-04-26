@@ -1,0 +1,11 @@
+ clase pc03 {
+privado pc03::classs (integer:entero -> entero);
+
+privado pc03::publicar (f:real -> real)
+{
+f := itor(7);
+retorna itor(1 +i 2 +i 3 +i 4 +i 5 -i 6);
+}
+
+}
+

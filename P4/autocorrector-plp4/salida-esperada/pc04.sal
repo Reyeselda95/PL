@@ -1,0 +1,14 @@
+ clase pc04 {
+publico pc04::metodo (a:entero -> entero)
+{
+a := 7;
+var b:entero;
+b := a;
+var c:real;
+var d:real;
+c := 1.1;
+d := itor(a) +r itor(b) *r c;
+}
+
+}
+

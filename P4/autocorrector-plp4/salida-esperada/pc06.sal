@@ -1,0 +1,38 @@
+ clase pc06 {
+publico clase pc06::una {
+}
+
+publico clase pc06::dos {
+publico pc06::dos::unMetodo (a:entero x b:entero x c:real -> entero)
+{
+c := itor(b) *r 2.5 /r 3.7 -r 8.0 +r itor(2) *r c -r itor(2) *r (itor(a +i b) +r c);
+retorna (a *i b) +i 7;
+}
+
+}
+
+publico pc06::m1 (i:entero x j:entero x k:entero -> entero);
+
+publico pc06::m2 (a:real x b:real x c:real x i:entero x inte:entero x ka:entero -> entero)
+{
+a := itor(7);
+b := itor(9);
+c := itor(10);
+retorna 00007;
+inte := i +i ka;
+{
+c := 123.456;
+var i:entero;
+i := inte -i ka;
+{
+}
+}
+}
+
+privado clase pc06::tres {
+privado pc06::tres::f (g:real x h:real x i:real x j:real -> real);
+
+}
+
+}
+

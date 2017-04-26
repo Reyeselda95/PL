@@ -1,0 +1,14 @@
+clase A{
+publico A::f1 (n:entero x s:real -> entero);
+publico A::ff1 (r:real -> real)
+{
+retorna itor(2 ) +r r ;
+
+}
+
+privado clase A::B{
+
+
+}
+
+}
